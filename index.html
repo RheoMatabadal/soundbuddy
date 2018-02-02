@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+
+  <title>SoundBuddy</title>
+
+  <!-- Meta Facebook-->
+  <meta property="og:title" content="Ner Karso">
+  <meta property="og:description" content="SoundBuddy is for music enthusiasts who want to search and download songs from SoundCloud.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://raw.githubusercontent.com/nerkarso/soundbuddy/master/assets/icon.png?v=1">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="128">
+  <meta property="og:image:height" content="128">
+  <!-- /Meta Facebook -->
+
+  <!-- Icon -->
+  <link rel="icon" type="image/png" href="assets/icon.png?v=1">
+  <!-- /Icon -->
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/app.css?v=1">
+  <!-- /Stylesheets -->
+</head>
+
+<body>
+  <main class="container">
+    <section class="hero">
+      <div class="hero-body">
+        <div class="columns is-mobile">
+          <div class="column is-half is-offset-one-quarter has-text-centered">
+            <h1 class="title">SoundBuddy</h1>
+            <form class="search">
+              <div class="control has-icons-left">
+                <input class="input is-dark query" type="text" placeholder="Search for artists, bands, tracks, podcasts on SoundCloud" autofocus>
+                <span class="icon is-small is-left"><i class="fas fa-search"></i></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="columns is-multiline tracks">
+        <script type="text/html" id="track_template">
+          <div class="column is-half track">
+            <article class="media">
+              <figure class="media-left">
+                <div class="image is-96x96">
+                  <img class="artwork" src="" alt="">
+                </div>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <h5 class="title is-5"></h5>
+                  <audio controls preload="none"></audio>
+                </div>
+              </div>
+            </article>
+          </div>
+        </script>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script type="text/javascript" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <script type="text/javascript" src="https://matreshkajs.github.io/matreshka/matreshka.min.js?v=1"></script>
+  <script type="text/javascript" src="assets/app.js?v=1"></script>
+  <!-- /Scripts -->
+</body>
+
+</html>
