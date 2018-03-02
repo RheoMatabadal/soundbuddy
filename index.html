@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="has-navbar-fixed-top">
 
 <head>
   <meta charset="UTF-8">
@@ -11,66 +11,149 @@
   <meta property="og:title" content="Ner Karso">
   <meta property="og:description" content="SoundBuddy is for music enthusiasts who want to search and download songs from SoundCloud.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://raw.githubusercontent.com/nerkarso/soundbuddy/master/assets/icon.png?v=1">
+  <meta property="og:image" content="https://raw.githubusercontent.com/nerkarso/soundbuddy/master/static/icon.png?v=1">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="128">
   <meta property="og:image:height" content="128">
   <!-- /Meta Facebook -->
 
   <!-- Icon -->
-  <link rel="icon" type="image/png" href="assets/icon.png?v=1">
+  <link rel="icon" type="image/png" href="static/icon.png?v=1">
   <!-- /Icon -->
 
   <!-- Stylesheets -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
-  <link rel="stylesheet" type="text/css" href="assets/app.css?v=1">
+  <link rel="stylesheet" type="text/css" href="static/app.css?v=1">
   <!-- /Stylesheets -->
 </head>
 
 <body>
+  <!-- Navbar -->
+  <nav class="navbar is-dark is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="" rel="nofollow"><img src="static/icon.png?v=1" alt="" width="28" height="28"> SoundBuddy</a>
+      <div class="navbar-burger burger" data-target="navbar">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div id="navbar" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item modal-button" data-target="modal-about"><span class="icon"><i class="fas fa-info-circle"></i></span> About</a>
+        <a class="navbar-item" href="https://github.com/nerkarso/soundbuddy/" target="_blank" rel="nofollow"><span class="icon"><i class="fab fa-github"></i></span> View on GitHub</a>
+      </div>
+    </div>
+  </nav>
+  <!-- /Navbar -->
+
+  <!-- Main -->
   <main class="container">
+    <!-- Section: hero -->
     <section class="hero">
       <div class="hero-body">
-        <div class="columns is-mobile">
-          <div class="column is-half is-offset-one-quarter has-text-centered">
-            <h1 class="title">SoundBuddy</h1>
+        <div class="columns is-multiline is-desktop">
+          <div class="column is-4 is-offset-4 has-text-centered">
+            <h4 class="subtitle">Explore, stream, and download music from leading artists around the globe.</h1>
+          </div>
+          <div class="column is-6 is-offset-3">
             <form class="search">
-              <div class="control has-icons-left">
-                <input class="input is-dark query" type="text" placeholder="Search for artists, bands, tracks, podcasts on SoundCloud" autofocus>
-                <span class="icon is-small is-left"><i class="fas fa-search"></i></span>
+              <div class="field has-addons">
+                <div class="control is-expanded has-icons-left">
+                  <input class="input is-dark query" type="text" placeholder="Search for artists, bands, tracks, podcasts on SoundCloud" autofocus>
+                  <span class="icon is-small is-left"><i class="fas fa-search"></i></span>
+                </div>
+                <div class="control">
+                  <button type="submit" class="button is-dark">Search</button>
+                </div>
               </div>
             </form>
           </div>
         </div>
       </div>
     </section>
+    <!-- /Section: hero -->
+
+    <!-- Section: tracks -->
     <section class="section">
       <div class="columns is-multiline tracks">
+        <div class="column is-12">
+          <h4 class="subtitle has-text-weight-semibold searched"></h4>
+        </div>
         <script type="text/html" id="track_template">
           <div class="column is-half track">
-            <article class="media">
-              <figure class="media-left">
-                <div class="image is-96x96">
-                  <img class="artwork" src="" alt="">
+            <div class="box">
+              <article class="media">
+                <figure class="media-left is-hidden-mobile">
+                  <div class="image is-96x96">
+                    <img class="artwork" src="" alt="">
+                  </div>
+                </figure>
+                <div class="media-content">
+                  <div class="content">
+                    <small class="has-text-grey-light username"></small>
+                    <h5 id="" class="title"></h5>
+                    <audio controls preload="none"></audio>
+                  </div>
+                  <nav class="level is-mobile">
+                    <div class="level-left">
+                      <a class="level-item button is-dark is-small is-outlined copy" data-clipboard-target="">Copy title</a>
+                      <a class="level-item button is-dark is-small download" href="" rel="nofollow" download>Download</a>
+                    </div>
+                  </nav>
                 </div>
-              </figure>
-              <div class="media-content">
-                <div class="content">
-                  <h5 class="title is-5"></h5>
-                  <audio controls preload="none"></audio>
-                </div>
-              </div>
-            </article>
+              </article>
+            </div>
           </div>
         </script>
       </div>
+      <div class="buttons has-addons is-centered load_more" style="display: none;">
+        <span class="button">Load more</span>
+      </div>
     </section>
+    <!-- /Section: tracks -->
+
+    <!-- Section: disclaimer -->
+    <section class="section">
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <article class="message is-dark">
+            <div class="message-header">
+              <p>Disclaimer</p>
+            </div>
+            <div class="message-body">
+              <p>We are not affiliated with SoundCloud nor do we host (or serve/stream) any copyrighted/pirated content (SoundCloud Tracks) on (or from) our server.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- /Section: disclaimer -->
   </main>
+  <!-- /Main -->
+
+  <!-- Modal -->
+  <div id="modal-about" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">About</p>
+        <button class="delete"></button>
+      </header>
+      <section class="modal-card-body">
+        <p>🎵 SoundBuddy is for music enthusiasts who want to search and download songs from SoundCloud.</p>
+        <br>
+        <p>This software is licensed under the terms of the <a href="https://github.com/nerkarso/soundbuddy/blob/master/LICENSE.md" target="_blank" rel="nofollow">MIT</a> license.</p>
+      </section>
+    </div>
+  </div>
+  <!-- /Modal -->
 
   <!-- Scripts -->
   <script type="text/javascript" src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-  <script type="text/javascript" src="https://matreshkajs.github.io/matreshka/matreshka.min.js?v=1"></script>
-  <script type="text/javascript" src="assets/app.js?v=1"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/matreshka/1.9.1/matreshka.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+  <script type="text/javascript" src="static/bulma.js?v=1"></script>
+  <script type="text/javascript" src="static/app.js?v=1"></script>
   <!-- /Scripts -->
 </body>
 
